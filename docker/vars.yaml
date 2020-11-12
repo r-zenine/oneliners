@@ -1,0 +1,24 @@
+- name: container
+  desc: the id of a docker a runing container
+  from_command: 'docker ps --format="{{.ID}}\t{{.Names}}"'
+
+- name: container_exited
+  desc: the id of a docker a runing container
+  from_command: 'docker ps --format="{{.ID}}\t{{.Names}}" --filter status=exited'
+
+
+- name: container_ip
+  desc: the ip address of a runing container
+  from_command: 'docker inspect {{container}} |jq ''.[0]["NetworkSettings"]["IPAddress"]''|sed ''s/"//g'''
+
+- name: container_port
+  desc: the ports exposed by the container
+  from_command: 'docker inspect {{ container }}|jq ''.[0]["NetworkSettings"]["Ports"] | keys''|awk -F''/'' ''/"/ {print $1}''|sed ''s/ *"//g'''
+
+- name: metrics_endpoint
+  desc: possible endpoint metrics 
+  choices: 
+    - value: metrics
+      desc: standard endpoint for prometheus
+    - value: debug/vars
+      desc: standard endpoint for expvar in Go

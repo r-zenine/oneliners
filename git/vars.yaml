@@ -1,0 +1,7 @@
+- name: git_tag
+  desc: tags on the git repo
+  from_command: git tag
+
+- name: git_remote
+  desc: git remote 
+  from_command: git remote show

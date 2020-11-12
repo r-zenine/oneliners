@@ -1,0 +1,6 @@
+- name: service
+  desc: the service for which to get the password
+  from_command: 'find ~/.password-store/  -name "*.gpg" |awk -F''.password-store/'' ''{print $2}''|sed ''s/.gpg//'''
+
+
+

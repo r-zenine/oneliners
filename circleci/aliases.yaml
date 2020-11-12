@@ -1,0 +1,8 @@
+- name: launch_job
+  desc: execute a local circleci job 
+  alias: 'circleci local execute --job={{jobs}}'
+
+- name: check_configuration
+  desc: checks if the configuration is valid
+  alias: 'circleci config validate'
+

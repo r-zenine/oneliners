@@ -1,0 +1,7 @@
+- name: password
+  desc: put a password in the clipboard
+  alias: pass -c {{ service }}
+
+- name: otp
+  desc: upgrade a specific package with apt
+  alias: pass otp -c {{ service }}

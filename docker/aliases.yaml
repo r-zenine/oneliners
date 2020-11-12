@@ -1,0 +1,33 @@
+- name: container_attach
+  desc: attach to a runing containr
+  alias: docker attach {{ container }}
+
+- name: container_stop
+  desc: stops a runing container
+  alias: docker stop {{ container }}
+
+- name: container_start
+  desc: start a stopped container
+  alias: docker start {{ container_exited }}
+
+
+- name: container_get_shell
+  desc: run's /bin/bash in a container
+  alias: docker exec -it {{ container }} /bin/sh
+
+- name: container_inspect
+  desc: inspects a runing container
+  alias: docker inspect {{ container }}
+
+- name: container_get_ip
+  desc: gets the IP of a runing container
+  alias: echo {{ container_ip }}
+
+- name: container_get_metrics
+  desc: get metrics for a runing container
+  alias: curl http://{{container_ip}}:{{ container_port }}/{{metrics_endpoint}}
+
+- name: containers_delete_stopped
+  desc: delete all stopped containers
+  alias: docker ps -q --filter status=exited|xargs docker rm
+

@@ -1,0 +1,19 @@
+- name: running_service
+  desc: service that is currently runing
+  from_command: 'systemctl --plain --type=''service'' --state=''running''|awk ''/running/ {print $1}'''
+
+- name: inactive_service
+  desc: service that is currently runing
+  from_command: 'systemctl --plain --type=''service'' --state=''inactive''|awk ''/inactive/ {print $1}'''
+
+- name: service
+  desc: a systemd service 
+  from_command: 'systemctl --plain --type=''service''|awk ''/service/ {print $1}'''
+
+- name: enabled_service
+  desc: a systemd service that is currently enabled
+  from_command: 'systemctl list-unit-files --state=enabled --plain --type=service |awk ''/enabled/ {print $1}'''
+
+- name: disabled_service
+  desc: a systemd service that is currently disabled
+  from_command: 'systemctl list-unit-files --state=disabled --plain --type=service |awk ''/disabled/ {print $1}'''

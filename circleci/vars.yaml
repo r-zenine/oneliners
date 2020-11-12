@@ -1,0 +1,3 @@
+- name: jobs
+  desc: circle ci jobs.
+  from_command: 'yq read .circleci/config.yml "jobs"|grep -v "^ "|sed ''s/://g'''

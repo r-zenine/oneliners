@@ -1,0 +1,23 @@
+- name: service_stop
+  desc: stop a currently running service
+  alias: sudo systemctl stop {{ running_service }}
+
+- name: service_start
+  desc: start's a currently innactive service
+  alias: sudo systemctl start {{ inactive_service }}
+
+- name: service_status
+  desc: start's a currently innactive service
+  alias: sudo systemctl status {{ service }}
+
+- name: service_cat
+  desc: start's a currently innactive service
+  alias: sudo systemctl cat {{ service }}
+
+- name: service_disable
+  desc: disable a service currently enabled 
+  alias: sudo systemctl enable {{ enabled_service }}
+
+- name: service_enable
+  desc: enable a service currently disabled 
+  alias: sudo systemctl disable {{ disabled_service }}

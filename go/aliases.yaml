@@ -1,0 +1,4 @@
+- name: launch test
+  desc: prunes all the unused images from a docker repository
+  alias: 'go test -run=''^{{ test_function }}$'' ./...'
+

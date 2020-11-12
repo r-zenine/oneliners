@@ -1,0 +1,19 @@
+- name: apt_clean
+  desc: upgrade packages
+  alias: sudo apt autoremove && sudo apt autoclean
+
+- name: apt_upgrade
+  desc: upgrade packages
+  alias: sudo apt upgrade
+
+- name: apt_binary_from_which_package
+  desc: locate from which package a binary/file commes from
+  alias: sudo apt-file search {{ lookup_path }}
+
+- name: apt_config_file_from_which_package
+  desc: locate from which package a config file comes from
+  alias: sudo apt-file search {{ config_file }}
+
+- name: apt_upgrade_specific_package
+  desc: upgrade a specific package with apt
+  alias: sudo apt install {{ upgradable_package }}

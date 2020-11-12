@@ -1,0 +1,15 @@
+- name: lookup_path
+  desc: a file to search for
+  from_command: which {{ binary }}
+
+- name: binary
+  desc: all the binaries available in $PATH
+  from_command: print -rC1 -- ${(ko)commands}
+
+- name: config_file
+  desc: configuration files present under /etc
+  from_command: find /etc -name "*"
+
+- name: upgradable_package
+  desc: all the packages that are currently upgradable
+  from_command: 'sudo apt list --upgradable 2> /dev/null|awk -F''/'' ''FNR > 1 {print $1};'''
