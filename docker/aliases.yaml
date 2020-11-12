@@ -1,33 +1,33 @@
 - name: container_attach
-  desc: attach to a runing containr
+  desc: choose a running container and attach to it
   alias: docker attach {{ container }}
 
 - name: container_stop
-  desc: stops a runing container
+  desc: choose a running container and stop it
   alias: docker stop {{ container }}
 
 - name: container_start
-  desc: start a stopped container
+  desc: choose a stopped container and start it
   alias: docker start {{ container_exited }}
 
 
-- name: container_get_shell
-  desc: run's /bin/bash in a container
+- name: container_shell
+  desc: Choose a running container and starts a shell
   alias: docker exec -it {{ container }} /bin/sh
 
 - name: container_inspect
-  desc: inspects a runing container
+  desc: Choose a running container and run's docker inspect on it
   alias: docker inspect {{ container }}
 
-- name: container_get_ip
-  desc: gets the IP of a runing container
+- name: container_ip
+  desc: Choose a running container and get it's IPAddress
   alias: echo {{ container_ip }}
 
-- name: container_get_metrics
-  desc: get metrics for a runing container
+- name: container_metrics
+  desc: Choose a running container and get the app metrics
   alias: curl http://{{container_ip}}:{{ container_port }}/{{metrics_endpoint}}
 
-- name: containers_delete_stopped
-  desc: delete all stopped containers
+- name: containers_del_stopped
+  desc: Delete all stopped containers
   alias: docker ps -q --filter status=exited|xargs docker rm
 

@@ -1,7 +1,7 @@
 - name: password
-  desc: put a password in the clipboard
+  desc: Choose a password and put it in the clipboard
   alias: pass -c {{ service }}
 
 - name: otp
-  desc: upgrade a specific package with apt
+  desc: Choose a totp token and put it in the clipboard
   alias: pass otp -c {{ service }}

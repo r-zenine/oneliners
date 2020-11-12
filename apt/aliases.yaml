@@ -1,19 +1,19 @@
-- name: apt_clean
-  desc: upgrade packages
+- name: remove_and_clean
+  desc: Run's apt autoclean and autoremove 
   alias: sudo apt autoremove && sudo apt autoclean
 
-- name: apt_upgrade
-  desc: upgrade packages
+- name: upgrade
+  desc: Run's apt upgrade
   alias: sudo apt upgrade
 
-- name: apt_binary_from_which_package
-  desc: locate from which package a binary/file commes from
+- name: binary_from_package
+  desc: Choose a binary from your path and see from which package it comes 
   alias: sudo apt-file search {{ lookup_path }}
 
-- name: apt_config_file_from_which_package
-  desc: locate from which package a config file comes from
+- name: conf_from_package
+  desc: Choose a file from /etc and see from which package it comes
   alias: sudo apt-file search {{ config_file }}
 
-- name: apt_upgrade_specific_package
-  desc: upgrade a specific package with apt
+- name: upgrade_package
+  desc: Choose an upgradable package and upgrade it
   alias: sudo apt install {{ upgradable_package }}

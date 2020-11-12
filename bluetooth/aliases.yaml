@@ -1,0 +1,8 @@
+- name: connect
+  desc: Choose a bluetooth paired device and connect to it
+  alias: bluetoothctl connect {{paired_device}}
+
+- name: disconnect
+  desc: Disconnect from the currently connected device
+  alias: bluetoothctl disconnect
+
